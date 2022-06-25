@@ -8,7 +8,7 @@ class Atividade extends Model
 {
 
     protected $fillable = [
-        'nome', 'flag_encerrada', 'data', 'user_id'
+        'nome', 'status', 'data', 'user_id'
     ];
 
     public function user(){
