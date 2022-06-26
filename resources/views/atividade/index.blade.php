@@ -6,6 +6,7 @@
             <li>
                 {{$atividade->nome}}, <a href="{{route('atividade.show', ['id' => $atividade->id])}}">Mostrar Atividade</a>,
                 <a href="{{route('atividade.edit', ['id' => $atividade->id])}}">Editar Atividade</a>,
+                <a href="{{route('tarefa.index', ['id' => $atividade->id])}}">Tarefas</a>,
                 <a href="{{route('atividade.remove', ['id' => $atividade->id])}}">Remover Atividade</a>
             </li>
         @endforeach

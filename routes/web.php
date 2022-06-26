@@ -27,3 +27,11 @@ Route::get('/atividades/edit/{id}', 'AtividadeController@edit')->name('atividade
 Route::post('/atividades/atualizar', 'AtividadeController@update')->name('atividade.update');
 Route::post('/atividades/criar', 'AtividadeController@store')->name('atividade.store');
 
+Route::get('/tarefas/index/{id}', 'TarefaController@index')->name('tarefa.index');
+Route::get('/tarefa/{id}', 'TarefaController@show')->name('tarefa.show');
+Route::get('/tarefas/cadastrar/{id}', 'TarefaController@create')->name('tarefa.create');
+Route::get('/tarefas/remover/{id}', 'TarefaController@remove')->name('tarefa.remove');
+Route::get('/tarefas/edit/{id}', 'TarefaController@edit')->name('tarefa.edit');
+Route::post('/tarefas/atualizar', 'TarefaController@update')->name('tarefa.update');
+Route::post('/tarefas/criar', 'TarefaController@store')->name('tarefa.store');
+

@@ -21,7 +21,7 @@ class CreateTarefasTable extends Migration
             $table->boolean('flag_concluida');
 
             $table->unsignedBigInteger('atividade_id');
-            $table->foreign('atividade_id')->references('id')->on('atividades');
+            $table->foreign('atividade_id')->references('id')->on('atividades')->cascadeOnDelete();
         });
     }
 
