@@ -19,7 +19,7 @@ class CreateAtividadesTable extends Migration
 
             $table->string('nome');
             $table->date('data');
-            $table->boolean('flag_encerrada');
+            $table->string('status');
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
