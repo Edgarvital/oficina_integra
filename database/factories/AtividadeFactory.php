@@ -12,6 +12,6 @@ $factory->define(Atividade::class, function (Faker $faker) {
         'nome' => 'Atividade '. Str::random(6),
         'data' => now(),
         'user_id' => 1,
-        'flag_encerrada' => false
+        'status' => 'Nao Realizada'
     ];
 });
