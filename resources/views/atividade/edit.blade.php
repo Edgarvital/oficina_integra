@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <form method="POST" action="{{route('atividade.update')}}">
     @csrf
     <div>
@@ -10,3 +12,4 @@
     </div>
     <button type="submit">Alterar</button>
 </form>
+@endsection

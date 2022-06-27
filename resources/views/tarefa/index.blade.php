@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <div>
     <h1 style="text-align: center">Lista de Tarefas - <a href="{{route('tarefa.create', ['id' => $atividade->id])}}">Cadastrar</a></h1>
 
@@ -13,3 +15,5 @@
 
     <a style="margin-left: 49%" href="{{route('atividade.index')}}">Voltar</a>
 </div>
+@endsection
+

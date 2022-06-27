@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <form method="POST" action="{{route('tarefa.store')}}">
     @csrf
     <div>
@@ -9,3 +11,4 @@
     </div>
     <button type="submit">Cadastrar</button>
 </form>
+@endsection
