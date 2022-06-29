@@ -25,6 +25,9 @@ class TarefaController extends Controller
     public function store(Request $request)
     {
         $tarefa = Tarefa::create($request->all());
+        $atividade = $tarefa->atividade;
+        $atividade->status = 'Em Andamento';
+        $atividade->update();
         return redirect()->route('tarefa.index',['id' => $tarefa->atividade->id]);
     }
 
@@ -37,7 +40,28 @@ class TarefaController extends Controller
     public function remove($id)
     {
         $tarefa = Tarefa::find($id);
+        $atividade = $tarefa->atividade;
         $tarefa->delete();
+
+        $tarefas = $atividade->tarefas()->get();
+        $count = 0;
+        foreach ($tarefas as $tarefa)
+        {
+            if($tarefa->flag_concluida == true)
+            {
+                $count += 1;
+            }
+        }
+
+        if($count == count($tarefas))
+        {
+            $atividade->status = 'Concluida';
+            $atividade->update();
+        } else {
+            $atividade->status = 'Em Andamento';
+            $atividade->update();
+        }
+
         return redirect()->back();
     }
 
