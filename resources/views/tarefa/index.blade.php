@@ -28,7 +28,7 @@
                         <a class="btn btn-secondary" href="{{route('tarefa.show', ['id' => $tarefa->id])}}">Mostrar</a>
                         <a href="{{route('tarefa.concluir', ['id' => $tarefa->id])}}" @if($tarefa->flag_concluida) class="btn btn-light" style="pointer-events: none"  @else class="btn btn-primary" @endif>Concluir</a>
                         <a class="btn btn-secondary" href="{{route('tarefa.edit', ['id' => $tarefa->id])}}">Editar</a>
-                        <a class="btn btn-secondary" href="{{route('tarefa.remove', ['id' => $tarefa->id])}}">Remover</a>
+                        <a onclick="return confirm('Deseja realmente remover {{$tarefa->nome}} ?')" class="btn btn-danger" href="{{route('tarefa.remove', ['id' => $tarefa->id])}}">Remover</a>
                     </td>
                 </tr>
             @endforeach
