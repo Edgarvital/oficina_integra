@@ -49,6 +49,36 @@ class TarefaController extends Controller
         return view('tarefa.edit', compact('tarefa'));
     }
 
+    public function concluir($id)
+    {
+        $tarefa = Tarefa::find($id);
+        $atividade = Atividade::find($tarefa->atividade_id);
+
+        $tarefa->flag_concluida = true;
+        $tarefa->update();
+
+        $tarefas = $atividade->tarefas()->get();
+        $count = 0;
+
+        foreach ($tarefas as $tarefa)
+        {
+            if($tarefa->flag_concluida == true)
+            {
+                $count += 1;
+            }
+        }
+
+        if($count == count($tarefas))
+        {
+            $atividade->status = 'Concluida';
+            $atividade->update();
+        } else {
+            $atividade->status = 'Em Andamento';
+            $atividade->update();
+        }
+        return redirect()->back();
+    }
+
     public function update(Request $request)
     {
         $tarefa = tarefa::find($request->id);

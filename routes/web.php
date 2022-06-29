@@ -32,6 +32,7 @@ Route::get('/tarefa/{id}', 'TarefaController@show')->name('tarefa.show');
 Route::get('/tarefas/cadastrar/{id}', 'TarefaController@create')->name('tarefa.create');
 Route::get('/tarefas/remover/{id}', 'TarefaController@remove')->name('tarefa.remove');
 Route::get('/tarefas/edit/{id}', 'TarefaController@edit')->name('tarefa.edit');
+Route::get('/tarefas/concluir/{id}', 'TarefaController@concluir')->name('tarefa.concluir');
 Route::post('/tarefas/atualizar', 'TarefaController@update')->name('tarefa.update');
 Route::post('/tarefas/criar', 'TarefaController@store')->name('tarefa.store');
 
