@@ -25,8 +25,6 @@ class TarefaController extends Controller
     public function store(Request $request)
     {
         $tarefa = Tarefa::create($request->all());
-        $tarefa->save();
-
         return redirect()->route('tarefa.index',['id' => $tarefa->atividade->id]);
     }
 
@@ -53,12 +51,6 @@ class TarefaController extends Controller
     {
         $tarefa = tarefa::find($request->id);
         $tarefa->nome = $request->nome;
-        if(isset($request->flag_concluida)){
-            $tarefa->flag_concluida = $request->flag_concluida;
-        }else{
-            $tarefa->flag_concluida = false;
-        }
-
         $tarefa->update();
 
         return redirect()->route('tarefa.index',['id' => $tarefa->atividade->id]);

@@ -23,10 +23,10 @@
             @foreach($tarefas as $tarefa)
                 <tr>
                     <td class="text-center">{{$tarefa->nome}}</td>
-                    <td class="text-center">@if($tarefa->flag_concluida) Concluída @else Não concluída @endif{{$tarefa->flag_concluida}}</td>
+                    <td class="text-center">@if($tarefa->flag_concluida) Concluída @else Não concluída @endif</td>
                     <td class="text-center"><a class="btn btn-secondary" href="{{route('tarefa.show', ['id' => $tarefa->id])}}">Mostrar</a>
                         <a class="btn btn-secondary" href="{{route('tarefa.edit', ['id' => $tarefa->id])}}">Editar</a>
-                        <a class="btn btn-secondary" href="{{route('tarefa.remove', ['id' => $tarefa->id])}}">Remover</a>
+                        <a onclick="return confirm('Deseja realmente remover {{$tarefa->nome}} ?')" class="btn btn-danger" href="{{route('tarefa.remove', ['id' => $tarefa->id])}}">Remover</a>
                     </td>
                 </tr>
             @endforeach
