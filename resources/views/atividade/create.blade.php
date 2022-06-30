@@ -2,6 +2,10 @@
 @section('content')
     <form method="POST" action="{{route('atividade.store')}}">
         @csrf
+
+        <input type="hidden" name="user_id" value="{{$user->id}}">
+        <input type="hidden" name="status" value="Nao Concluida">
+
         <div class="text-center bg-dark p-1" style="color: white; width: 100%">
             <h1 style="text-align: center">Cadastrar Atividade</h1>
         </div>
